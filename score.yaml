@@ -21,10 +21,11 @@ containers:
       DB_PASSWORD: ${resources.db.password}
       DB_HOST: ${resources.db.host}
       DB_PORT: ${resources.db.port}
+      DEPLOY_ENV: ${context.env.id}
 
 # Define the resources that this service needs
 resources:
-  dns: # We need a DNS record to point to the service 
+  dns: # We need a DNS record to point to the service
     type: dns
   route:
     type: route
@@ -32,5 +33,7 @@ resources:
       host: ${resources.dns.host}
       path: /
       port: 80
-  db:  # We need a database to store data
+  db: # We need a database to store data
     type: mysql
+  env:
+    type: environment
