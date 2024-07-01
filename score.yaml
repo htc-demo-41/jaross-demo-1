@@ -16,11 +16,11 @@ containers:
     image: . # Set by pipeline
     variables:
       PORT: "3000"
-      DB_DATABASE: ${resources.db.name}
-      DB_USER: ${resources.db.username}
-      DB_PASSWORD: ${resources.db.password}
-      DB_HOST: ${resources.db.host}
-      DB_PORT: ${resources.db.port}
+      DB_DATABASE: ${resources.db2.name}
+      DB_USER: ${resources.db2.username}
+      DB_PASSWORD: ${resources.db2.password}
+      DB_HOST: ${resources.db2.host}
+      DB_PORT: ${resources.db2.port}
       DEPLOY_ENV: ${context.env.id}
 
 # Define the resources that this service needs
@@ -33,7 +33,7 @@ resources:
       host: ${resources.dns.host}
       path: /
       port: 80
-  db: # We need a database to store data
+  db2: # We need a database to store data
     type: mysql
   env:
     type: environment
